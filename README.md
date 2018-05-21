@@ -22,7 +22,7 @@ The backend has been designed used MongoDB and Express server after scaffolding 
     .post(function(req,res){...}
 ```
 
-Perform a post on http://localhost:3000/register 
+Perform a post on http://localhost:3000/users/add 
 The body should contain       
 
 ```
