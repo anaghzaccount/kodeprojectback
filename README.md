@@ -11,3 +11,24 @@ The backend has been designed used MongoDB and Express server after scaffolding 
 5. start the project with the command "npm start". Make sure the mongodb service is already running when started.
 6. Referring to kodeprojectfront repository, run gulp watch on that repository now for the frontend to work.
 7. Note: CORS plugin may be required for Cross Origin Resource Compatibility. Make sure to install the chrome plugin for CORS and enable the same on the chrome browser.
+8. Note 2: A user with admin role is expected to be in the database (dbname: kodeWorkProject) when the application starts. That can either be done using mongo shell or using postman on the backend. To perform via postman, navigate to "kodeprojectback/routes" folder, and update the "users.js" file. Change from
+   ``` 
+userRouter.route('/add') 
+.post(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function(req,res){...} 
+to 
+userRouter.route('/add') 
+.post(function(req,res){...}
+```
+Perform a post on http://localhost:3000/register
+ 
+The body should contain
+```
+{
+    "username":"admin",
+    "password":"admin",
+    "email":"admin@admin.com",
+    "address":"admin, IN",
+    "admin":true
+}
+```
+Once an admin user is added, change the code back to the original code. 
